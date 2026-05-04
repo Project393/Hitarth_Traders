@@ -555,10 +555,14 @@
       .product-icon { text-align: center; }
 
       /* Contact */
-      #contact .contact-grid { grid-template-columns: 1fr; }
-      .contact-item { width: 100%; }
-      .contact-info { width: 100%; align-items: stretch; }
-      .map-wrapper { width: 100%; height: 260px; }
+      #contact .section-inner { display: flex; flex-direction: column; align-items: center; width: 100%; }
+      #contact .contact-grid { grid-template-columns: 1fr; width: 100%; }
+      .contact-info { width: 100%; display: flex; flex-direction: column; align-items: stretch; }
+      .contact-item { width: 100%; max-width: 100%; box-sizing: border-box; }
+      .contact-item:hover { transform: none; box-shadow: none; }
+      .map-wrapper { width: 100%; max-width: 100%; height: 260px; margin: 0 auto; display: block; }
+      .map-wrapper iframe { width: 100%; height: 100%; }
+      #contact div[style*="text-align:center"] { width: 100%; display: flex; justify-content: center; }
 
       /* Footer */
       footer { text-align: center; padding: 30px 16px; }
