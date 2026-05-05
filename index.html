@@ -93,6 +93,7 @@
       background: rgba(5,15,15,0.55);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--glass-border);
+      transition: transform 0.35s ease, background 0.3s ease;
     }
 
     .nav-logo {
@@ -974,12 +975,18 @@
     }, { threshold: 0.12 });
     reveals.forEach(el => observer.observe(el));
 
-    // Navbar scroll effect
+    // Navbar hide on scroll down, show on scroll up
     const nav = document.querySelector('nav');
+    let lastScroll = 0;
     window.addEventListener('scroll', () => {
-      nav.style.background = window.scrollY > 60
-        ? 'rgba(5,15,15,0.85)'
-        : 'rgba(5,15,15,0.55)';
+      const current = window.scrollY;
+      if (current > lastScroll && current > 80) {
+        nav.style.transform = 'translateY(-110%)';
+      } else {
+        nav.style.transform = 'translateY(0)';
+        nav.style.background = current > 60 ? 'rgba(5,15,15,0.92)' : 'rgba(5,15,15,0.55)';
+      }
+      lastScroll = current;
     });
   </script>
 </body>
